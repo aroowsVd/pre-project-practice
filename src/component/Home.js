@@ -1,4 +1,38 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  width: 1280px;
+  margin: 0 auto;
+`;
+
+const H1 = styled.h1`
+  text-align: center;
+`;
+
+const Form = styled.form`
+  display: flex;
+  justify-content: center;
+`;
+
+const Input = styled.input`
+  padding: 10px 15px;
+`;
+
+const Button = styled.button`
+  padding: 10px 15px;
+  margin-left: 5px;
+  font-weight: 700;
+`;
+
+const Ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  li {
+    list-style: none;
+  }
+`;
 
 function Home() {
   const todos = [
@@ -21,18 +55,18 @@ function Home() {
     setText(e.target.value)
   }
   return (
-    <>
-      <h1>To Do List</h1>
-      <form onSubmit={onSubmit}>
-        <input type="text" value={text} onChange={onChange} />
-        <button>ADD</button>
-      </form>
-      <ul>
+    <Container>
+      <H1>To Do List</H1>
+      <Form onSubmit={onSubmit}>
+        <Input type="text" value={text} onChange={onChange} />
+        <Button>ADD</Button>
+      </Form>
+      <Ul>
         {todos.map((todo) => (
           <li key={todo.id}>{todo.text}</li>
         ))}
-      </ul>
-    </>
+      </Ul>
+    </Container>
   )
 }
 
